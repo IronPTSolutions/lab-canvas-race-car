@@ -43,6 +43,7 @@ Car.prototype.moveLeft = function() {
 
 Car.prototype.draw = function() {
   if (this.isReady) {
+    this.ctx.save();
     this.ctx.drawImage(
       this.image,
       0,
@@ -55,4 +56,5 @@ Car.prototype.draw = function() {
       this.height
     );
   }
+  this.ctx.restore();
 };
