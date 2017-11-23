@@ -23,10 +23,12 @@ Road.prototype.draw = function() {
   this.ctx.strokeStyle = "#fff";
   this.ctx.lineWidth = 3;
   this.ctx.setLineDash([15, 20]);
+  this.ctx.beginPath();
   this.ctx.moveTo(this.x + 40 + this.width / 2, this.y);
   this.ctx.lineTo(this.x + 40 + this.width / 2, this.y + this.height);
   this.ctx.stroke();
   this.ctx.setLineDash([]);
+  this.ctx.closePath();
 
   this.ctx.fillRect(this.x + 40 + this.width + this.gapWidth, this.y, 10, this.height);
 
