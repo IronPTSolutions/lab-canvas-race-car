@@ -7,7 +7,6 @@ function Board(canvas) {
   this.car = new Car(canvas, "./images/car.png");
   this.car.x = this.road.width / 2 + 15;
   this.car.y = this.road.height - 120;
-
   
 }
 

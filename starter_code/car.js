@@ -1,3 +1,6 @@
+var RIGHT_KEY = 39;
+var LEFT_KEY = 37;
+
 function Car(canvas, image) {
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
@@ -5,6 +8,7 @@ function Car(canvas, image) {
   this.x = 0;
   this.y = 0;
   this.scale = 0.30;
+  this.speed = 20;
 
   this.image = new Image();
   this.image.src = image;
@@ -13,7 +17,29 @@ function Car(canvas, image) {
     this.width = this.image.width * this.scale;
     this.height = this.image.height * this.scale;
   }).bind(this);
+
+  document.onkeydown = this.onKeyDown.bind(this);
 }
+
+Car.prototype.onKeyDown = function(event) {
+  if (event.keyCode == RIGHT_KEY) {
+    this.moveRight();
+  } else if (event.keyCode == LEFT_KEY) {
+    this.moveLeft();
+  }
+};
+
+Car.prototype.moveRight = function() {
+  if (this.x < this.canvas.width - 99) {
+    this.x += this.speed;
+  }
+};
+
+Car.prototype.moveLeft = function() {
+  if (this.x > 40) {
+    this.x -= this.speed;
+  }
+};
 
 Car.prototype.draw = function() {
   if (this.isReady) {
