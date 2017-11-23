@@ -27,6 +27,7 @@ Car.prototype.onKeyDown = function(event) {
   } else if (event.keyCode == LEFT_KEY) {
     this.moveLeft();
   }
+  return true;
 };
 
 Car.prototype.moveRight = function() {
@@ -39,6 +40,17 @@ Car.prototype.moveLeft = function() {
   if (this.x > 40) {
     this.x -= this.speed;
   }
+};
+
+Car.prototype.collide = function(elements) {
+  collitions = elements.filter((function(e) {
+    return e.collide(this);
+  }).bind(this));
+
+  if (collitions.length > 0) {
+    return true;
+  }
+  return false;
 };
 
 Car.prototype.draw = function() {
