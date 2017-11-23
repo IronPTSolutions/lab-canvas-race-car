@@ -6,32 +6,32 @@ function Road(canvas) {
   this.y = 0;
 
   this.gapWidth = 10;
-  this.roadWidth = 250;
-  this.roadHeight = 500;
+  this.width = 250;
+  this.height = 500;
 }
 
 Road.prototype.draw = function() {
   this.ctx.save();
   this.ctx.fillStyle = "#008000";
-  this.ctx.fillRect(this.x, this.y, 20, this.roadHeight);
+  this.ctx.fillRect(this.x, this.y, 20, this.height);
 
   this.ctx.fillStyle = "#808080";
-  this.ctx.fillRect(this.x + 20, this.y, 10, this.roadHeight);
+  this.ctx.fillRect(this.x + 20, this.y, 10, this.height);
 
-  this.ctx.fillRect(this.x + 40, this.y, this.roadWidth, this.roadHeight);
+  this.ctx.fillRect(this.x + 40, this.y, this.width, this.height);
 
   this.ctx.strokeStyle = "#fff";
   this.ctx.lineWidth = 3;
   this.ctx.setLineDash([15, 20]);
-  this.ctx.moveTo(this.x + 40 + this.roadWidth / 2, this.y);
-  this.ctx.lineTo(this.x + 40 + this.roadWidth / 2, this.y + this.roadHeight);
+  this.ctx.moveTo(this.x + 40 + this.width / 2, this.y);
+  this.ctx.lineTo(this.x + 40 + this.width / 2, this.y + this.height);
   this.ctx.stroke();
   this.ctx.setLineDash([]);
 
-  this.ctx.fillRect(this.x + 40 + this.roadWidth + this.gapWidth, this.y, 10, this.roadHeight);
+  this.ctx.fillRect(this.x + 40 + this.width + this.gapWidth, this.y, 10, this.height);
 
   this.ctx.fillStyle = "#008000";
-  this.ctx.fillRect(this.x + 50 + this.roadWidth + this.gapWidth, this.y, 20, this.roadHeight);
+  this.ctx.fillRect(this.x + 50 + this.width + this.gapWidth, this.y, 20, this.height);
 
   this.ctx.restore();
 };
